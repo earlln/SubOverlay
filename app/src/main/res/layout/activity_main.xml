@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0A0F">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- 헤더 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SubOverlay"
+            android:textColor="#7C6AFF"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="실시간 영→한 자막 오버레이"
+            android:textColor="#6666AA"
+            android:textSize="13sp"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- 상태 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:id="@+id/statusIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="○ 대기"
+                android:textColor="#9E9E9E"
+                android:textSize="14sp"
+                android:layout_weight="1"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnToggleService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="▶ 자막 시작"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#5C6BC0"
+                app:cornerRadius="24dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"/>
+        </LinearLayout>
+
+        <!-- 언어 선택 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="자막 언어"
+            android:textColor="#AAAACC"
+            android:textSize="12sp"
+            android:layout_marginBottom="8dp"/>
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggleLang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:selectionRequired="true"
+            android:layout_marginBottom="24dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLangBoth"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="한 + EN"
+                android:textColor="#FFFFFF"
+                app:strokeColor="#7C6AFF"
+                android:checked="true"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLangKo"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="한국어"
+                android:textColor="#FFFFFF"
+                app:strokeColor="#7C6AFF"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLangEn"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="English"
+                android:textColor="#FFFFFF"
+                app:strokeColor="#7C6AFF"/>
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <!-- 글자 크기 -->
+        <TextView
+            android:id="@+id/tvFontSizeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="글자 크기: 18sp"
+            android:textColor="#AAAACC"
+            android:textSize="12sp"
+            android:layout_marginBottom="8dp"/>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sliderFontSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="12"
+            android:valueTo="28"
+            android:value="18"
+            android:stepSize="1"
+            app:thumbColor="#7C6AFF"
+            app:trackColorActive="#7C6AFF"
+            app:trackColorInactive="#2A2A3A"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- 배경 투명도 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="배경 불투명도"
+            android:textColor="#AAAACC"
+            android:textSize="12sp"
+            android:layout_marginBottom="8dp"/>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sliderBgAlpha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="0"
+            android:valueTo="255"
+            android:value="180"
+            android:stepSize="5"
+            app:thumbColor="#FF6A9E"
+            app:trackColorActive="#FF6A9E"
+            app:trackColorInactive="#2A2A3A"
+            android:layout_marginBottom="28dp"/>
+
+        <!-- 사용 안내 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📋 사용 방법"
+            android:textColor="#7C6AFF"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. ▶ 자막 시작 버튼 탭\n2. 권한 요청 시 모두 허용\n3. 다른 앱(X, 브라우저 등) 열어서 영상 재생\n4. 화면 하단에 자막이 자동으로 표시됨\n\n⚠ 첫 실행 시 번역 모델 다운로드(약 50MB)\n⚠ 마이크로 주변 소리를 인식합니다"
+            android:textColor="#6666AA"
+            android:textSize="13sp"
+            android:lineSpacingExtra="4dp"/>
+
+    </LinearLayout>
+</ScrollView>
